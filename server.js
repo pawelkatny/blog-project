@@ -11,9 +11,24 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('index', {text: text});
+    res.render('home', {text: text});
 })
 
+app.get('/about', (req, res) => {
+    res.render('about', {text: text});
+})
+
+app.get('/contact', (req, res) => {
+    res.render('contact', {text: text});
+})
+
+app.get('/compose', (req, res) => {
+    res.render('compose');
+})
+
+app.post('/newpost', (req, res) => {
+    console.log(req.body);
+})
 app.listen(PORT, () => {
     console.log(`Server up and running at PORT ${PORT}`);
 })
